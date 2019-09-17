@@ -1,3 +1,23 @@
 body {
-    background-color: #0E6973;
+    background-color: black;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 2rem 0;
+    width : 100%;
+}
+
+main {
+    background: #0E6973;
+    width: 90%;
+    margin: auto;
+    border-radius: 5px;
+    padding: 2rem 0;
+    
+}
+
+ 
+h1 {
+    margin: 3rem 1rem 6rem 1rem;
 }
