@@ -1,7 +1,12 @@
 function doesNotPassAllValidations(name, msg) {
   // Displaying an error
-  if (!name || !msg) {
-    alert("You forgot to fill in your name or message!");
+  if (!name) {
+    alert("Oh, oh. You forgot to fill in your name!");
+    return true;
+  }
+
+  if (!msg) {
+    alert("Oh, oh!  You forgot to fill in  your message!");
     return true;
   }
 
@@ -11,6 +16,12 @@ function doesNotPassAllValidations(name, msg) {
     alert(
       "Hi Chatter Head! You've used too many characters. Down size it a little ;-)"
     );
+    return true;
+  }
+
+  // no capital letter in name
+  if (name[0] === name[0].toLowerCase()) {
+    alert("Oh, oh! Your name doensn't begin with a capital letter");
     return true;
   }
   return false;
@@ -23,6 +34,11 @@ function submitComment() {
   const name = inputField.value;
   const textField = document.getElementById("msg");
   const msg = textField.value;
+
+  // after assigning the variables but before you want to change things
+  if (doesNotPassAllValidations(name, msg)) {
+    return null;
+  }
 
   // Gather data of the input fields
   const comment = document.createElement("section");
@@ -44,10 +60,6 @@ function submitComment() {
   //Empty the input fields so the next user can type some new text.
   inputField.value = null;
   textField.value = null;
-
-  if (doesNotPassAllValidations(name, msg)) {
-    return null;
-  }
 }
 
 // STEPS
