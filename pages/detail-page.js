@@ -1,3 +1,21 @@
+function doesNotPassAllValidations(name, msg) {
+  // Displaying an error
+  if (!name || !msg) {
+    alert("You forgot to fill in your name or message!");
+    return true;
+  }
+
+  console.log(msg.length);
+  // Short comments
+  if (msg.length > 280) {
+    alert(
+      "Hi Chatter Head! You've used too many characters. Down size it a little ;-)"
+    );
+    return true;
+  }
+  return false;
+}
+
 function submitComment() {
   console.log("Hello");
   // // Gather data of the input fields
@@ -18,9 +36,18 @@ function submitComment() {
   comment.classList.add("comment");
   comment.appendChild(h3Element);
   comment.appendChild(pElement);
-  console.log(comment);
 
   // Display the adjusted elements on your page
+  const commentSection = document.getElementById("comments");
+  commentSection.appendChild(comment);
+
+  //Empty the input fields so the next user can type some new text.
+  inputField.value = null;
+  textField.value = null;
+
+  if (doesNotPassAllValidations(name, msg)) {
+    return null;
+  }
 }
 
 // STEPS
@@ -30,4 +57,4 @@ function submitComment() {
 // Create some elements (to display the data)
 // Adjust the elements so they display the data
 // Display the adjusted elements on your page
-// Empty the input fields so the next user can type some new text.
+// Empty the input fields so the next user can type some new text
